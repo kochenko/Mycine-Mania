@@ -1,0 +1,201 @@
+teste:
+	demo/runmeneger
+	demo/runmenegerswing
+	{abre janela}
+	seleciona stand alone
+	escolhe caminho
+	jdbc:hsqldb:file:/Projeto/BancoDeDados/cliente
+
+executar no swing o texto do exemplo sql cliente.sql
+
+criado o banco com umas tabalas
+
+fechar o banco
+ 
+no netbeans
+runtime
+driver
+add drivers
+adiciona na librari do projeto o jar do banco de dados
+
+ALTER TABLE FUNCIONARIOS ( ADD SENHA varchar(30) );
+
+
+select * from "PUBLIC"."ALUNOS"
+C:\Users\Notebook\Desktop\IA\TRABALHO M2\banco\banco
+
+jdbc:hsqldb:file:C:\Users\Notebook\Desktop\IA\TRABALHO M2\banco\banco
+
+
+create table FUNCIONARIOS  (
+  CODIGO IDENTITY primary key,
+  NOME varchar(40) not null,
+  DATABAIXA varchar(10) not null,
+  DATACONTRATO varchar(10) not null,
+  DATANASCIMENTO varchar(10) not null,
+  EMAIL varchar(40) not null,
+  ENDERECO varchar(40) not null,
+  TELEFONE integer not null,
+  SALARIO double not null,
+  SENHA integer not null,
+  ADMINISTRADOR integer not null
+);
+
+DROP TABLE CONSUMIDOR
+
+insert into FUNCIONARIOS (nome, DATABAIXA, DATACONTRATO, DATANASCIMENTO,
+EMAIL, ENDERECO, TELEFONE, SALARIO, SENHA, ADMINISTRADOR)
+values (
+'Daniel', '10102013','10102013','10102013','a','a',123,1.1,12345,1);
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+DROP TABLE PARTICIPANTE 
+
+DROP TABLE ADMINISTRADOR 
+
+DROP TABLE FUNCIONARIO 
+
+create table Vouncher (
+codigoVouncher int  primary key,
+data_vouncher date not null,
+status int not null
+);
+
+
+create table Promocao (
+id_promocao int  primary key,
+descricao varchar(90) not null,
+nome_promocao varchar (30) not null,
+validade_promocao date not null
+);
+
+create table Cinema(
+cnpj int primary key,
+localizacao varchar (50) not null,
+nome_cinema varchar(40) not null
+);
+
+create table PARTICIPANTE (
+  CODIGO IDENTITY primary key,
+  NOME varchar(40) not null,
+  EMAIL varchar(40) not null,
+  SENHA varchar(10) not null,
+  CPF varchar(11) not null,
+  VALIDADO BOOLEAN not null
+);
+
+create table ADMINISTRADOR (
+  CODIGO IDENTITY primary key,
+  NOME varchar(40) not null,
+  EMAIL varchar(40) not null,
+  SENHA varchar(10) not null,
+  CPF varchar(11) not null,
+  VALOR_ADESAO double not null
+);
+
+create table FUNCIONARIO (
+  CODIGO IDENTITY primary key,
+  NOME varchar(40) not null,
+  EMAIL varchar(40) not null,
+  SENHA varchar(10) not null,
+  CPF varchar(11) not null
+);
+
+insert into PARTICIPANTE (NOME, EMAIL, SENHA, CPF, VALIDADO) values ( 'Daniel', 'daniel@aaa.com.br' ,'12345','12345678910', false);
+
+insert into PARTICIPANTE (NOME, EMAIL, SENHA, CPF, VALIDADO) values ( 'Pedro', 'pedro@aaa.com.br' ,'12345','12345678911', false);
+
+insert into PARTICIPANTE (NOME, EMAIL, SENHA, CPF, VALIDADO) values ( 'Joao', 'joao@aaa.com.br' ,'12345','12345678912', false);
+
+insert into PARTICIPANTE (NOME, EMAIL, SENHA, CPF, VALIDADO) values ( 'Lucas', 'lucas@aaa.com.br' ,'12345','12345678913', false);
+
+insert into PARTICIPANTE (NOME, EMAIL, SENHA, CPF, VALIDADO) values ( 'Gabriel', 'gabriel@aaa.com.br' ,'12345','12345678914', false);
+
+insert into PARTICIPANTE (NOME, EMAIL, SENHA, CPF, VALIDADO) values ( 'Luiza', 'luiza@aaa.com.br' ,'12345','12345678915', false);
+
+insert into PARTICIPANTE (NOME, EMAIL, SENHA, CPF, VALIDADO) values ( 'Ana', 'ana@aaa.com.br' ,'12345','12345678916', false);
+
+insert into PARTICIPANTE (NOME, EMAIL, SENHA, CPF, VALIDADO) values ( 'Marta', 'marta@aaa.com.br' ,'12345','12345678917', false);
+
+insert into ADMINISTRADOR (NOME, EMAIL, SENHA, CPF, VALOR_ADESAO) values ( 'Jhon', 'jhon@aaa.com.br' ,'12345','12345678917', 100);
+
+insert into FUNCIONARIO (NOME, EMAIL, SENHA, CPF) values ( 'Elisa', 'elisa@aaa.com.br' ,'12345','12345678916');
+
+insert into FUNCIONARIO (NOME, EMAIL, SENHA, CPF) values ( 'Matias', 'matias@aaa.com.br' ,'12345','12345678917');
+
+
+
+create table CONSUMIDOR (
+  CODIGO IDENTITY primary key,
+  NOME varchar(40) not null,
+  PONTUACAO double not null,
+  FOI_INADIMPLENTE varchar(1) not null,
+  NOME_SUJO varchar(1) not null,
+  FORNECIMENTO_INTEROMPIDO varchar(1) not null,
+  CLASSE_CONSUMO varchar(1) not null,
+  DENUNCIA varchar(1) not null,
+  SITUACAO_EH_LIMPO varchar(1) not null,
+  DIFERENCA_MEDIA double not null,
+  CONSUMO_MENSAL_MEDIO double not null,
+  DIF_CONS_ATUAL_ANTERIOR double not null
+);
+
+insert into CONSUMIDOR (NOME, PONTUACAO, FOI_INADIMPLENTE, NOME_SUJO, FORNECIMENTO_INTEROMPIDO, CLASSE_CONSUMO, DENUNCIA, SITUACAO_EH_LIMPO, DIFERENCA_MEDIA, CONSUMO_MENSAL_MEDIO, DIF_CONS_ATUAL_ANTERIOR) values ( 'Daniel', 0 ,'n','n','n','b','n','s',20.0,100,-10);
+
+insert into CONSUMIDOR (NOME, PONTUACAO, FOI_INADIMPLENTE, NOME_SUJO,
+FORNECIMENTO_INTEROMPIDO, CLASSE_CONSUMO, DENUNCIA, SITUACAO_EH_LIMPO, DIFERENCA_MEDIA, CONSUMO_MENSAL_MEDIO, DIF_CONS_ATUAL_ANTERIOR)
+values (
+'Luiz Antonio', 0 ,'s','s','n','t','s','s',-40.0,30,-70);
+
+insert into CONSUMIDOR (NOME, PONTUACAO, FOI_INADIMPLENTE, NOME_SUJO,
+FORNECIMENTO_INTEROMPIDO, CLASSE_CONSUMO, DENUNCIA, SITUACAO_EH_LIMPO, DIFERENCA_MEDIA, CONSUMO_MENSAL_MEDIO, DIF_CONS_ATUAL_ANTERIOR)
+values (
+'Haroldo', 0 ,'n','s','n','b','s','s',40.0,200,10);
+
+insert into CONSUMIDOR (NOME, PONTUACAO, FOI_INADIMPLENTE, NOME_SUJO,
+FORNECIMENTO_INTEROMPIDO, CLASSE_CONSUMO, DENUNCIA, SITUACAO_EH_LIMPO, DIFERENCA_MEDIA, CONSUMO_MENSAL_MEDIO, DIF_CONS_ATUAL_ANTERIOR)
+values (
+'Cleber', 0 ,'s','n','s','m','n','s',-30.0,30,-40);
+
+insert into CONSUMIDOR (NOME, PONTUACAO, FOI_INADIMPLENTE, NOME_SUJO,
+FORNECIMENTO_INTEROMPIDO, CLASSE_CONSUMO, DENUNCIA, SITUACAO_EH_LIMPO, DIFERENCA_MEDIA, CONSUMO_MENSAL_MEDIO, DIF_CONS_ATUAL_ANTERIOR)
+values (
+'Marcelo', 0 ,'s','s','s','b','n','s',10.0,90,-20);
+
+insert into CONSUMIDOR (NOME, PONTUACAO, FOI_INADIMPLENTE, NOME_SUJO,
+FORNECIMENTO_INTEROMPIDO, CLASSE_CONSUMO, DENUNCIA, SITUACAO_EH_LIMPO, DIFERENCA_MEDIA, CONSUMO_MENSAL_MEDIO, DIF_CONS_ATUAL_ANTERIOR)
+values (
+'Paulo', 0 ,'n','n','n','t','n','s',-10.0,120,30);
+
+insert into CONSUMIDOR (NOME, PONTUACAO, FOI_INADIMPLENTE, NOME_SUJO,
+FORNECIMENTO_INTEROMPIDO, CLASSE_CONSUMO, DENUNCIA, SITUACAO_EH_LIMPO, DIFERENCA_MEDIA, CONSUMO_MENSAL_MEDIO, DIF_CONS_ATUAL_ANTERIOR)
+values (
+'Fabio', 0 ,'s','n','n','m','s','s',-30.0,100,-10);
+
+insert into CONSUMIDOR (NOME, PONTUACAO, FOI_INADIMPLENTE, NOME_SUJO,
+FORNECIMENTO_INTEROMPIDO, CLASSE_CONSUMO, DENUNCIA, SITUACAO_EH_LIMPO, DIFERENCA_MEDIA, CONSUMO_MENSAL_MEDIO, DIF_CONS_ATUAL_ANTERIOR)
+values (
+'Ivair', 0 ,'n','n','n','b','n','s',20.0,120,-10);
+
+insert into CONSUMIDOR (NOME, PONTUACAO, FOI_INADIMPLENTE, NOME_SUJO,
+FORNECIMENTO_INTEROMPIDO, CLASSE_CONSUMO, DENUNCIA, SITUACAO_EH_LIMPO, DIFERENCA_MEDIA, CONSUMO_MENSAL_MEDIO, DIF_CONS_ATUAL_ANTERIOR)
+values (
+'Anderson', 0 ,'s','s','s','t','s','s',-30.0,140,-20);
+
+insert into CONSUMIDOR (NOME, PONTUACAO, FOI_INADIMPLENTE, NOME_SUJO,
+FORNECIMENTO_INTEROMPIDO, CLASSE_CONSUMO, DENUNCIA, SITUACAO_EH_LIMPO, DIFERENCA_MEDIA, CONSUMO_MENSAL_MEDIO, DIF_CONS_ATUAL_ANTERIOR)
+values (
+'Andre', 0 ,'n','n','s','m','n','s',20.0,50,-30);
+
+insert into CONSUMIDOR (NOME, PONTUACAO, FOI_INADIMPLENTE, NOME_SUJO,
+FORNECIMENTO_INTEROMPIDO, CLASSE_CONSUMO, DENUNCIA, SITUACAO_EH_LIMPO, DIFERENCA_MEDIA, CONSUMO_MENSAL_MEDIO, DIF_CONS_ATUAL_ANTERIOR)
+values (
+'Danilo', 0 ,'s','s','n','b','n','s',4.0,80,20);
+
+insert into CONSUMIDOR (NOME, PONTUACAO, FOI_INADIMPLENTE, NOME_SUJO,
+FORNECIMENTO_INTEROMPIDO, CLASSE_CONSUMO, DENUNCIA, SITUACAO_EH_LIMPO, DIFERENCA_MEDIA, CONSUMO_MENSAL_MEDIO, DIF_CONS_ATUAL_ANTERIOR)
+values (
+'José Mario', 0 ,'s','s','n','t','n','s',10.0,200,-10);
+
+
