@@ -9,6 +9,7 @@ public class ControlePrincipal {
     private LocalizadorFuncionario locFuncionario;
     private LocalizadorAdministrador locAdministrador;
     private LocalizadorParticipante locParticipante; 
+    private LocalizadorPromocao locPromocao;
    
     public ControlePrincipal() { //Construtor
 
@@ -23,14 +24,21 @@ public class ControlePrincipal {
        
        this.locParticipante = new LocalizadorParticipante();
        this.locParticipante.setConnection(this.banco.pegaConexao());
+       
+       this.locPromocao = new LocalizadorPromocao();
+       this.locPromocao.setConnection(this.banco.pegaConexao());
     }
     
     public void Inicia(){
-       frPrincipal principal = new frPrincipal(this);
+       
+       Pesquisa pesquisa = new Pesquisa();
+       /*frPrincipal principal = new frPrincipal(this);
        if(banco.isFuncionando()){
            principal.conexaoEstabelecida(); // se nao for validado falha a conexao no evento formWindowOpened 
+           
        }
-        principal.setVisible(true);
+        principal.setVisible(true);*/
+       pesquisa.setVisible(true);
     }
     
 }

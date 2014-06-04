@@ -39,8 +39,8 @@ public class LocalizadorParticipante {
             } 
             
             Statement stmt = con.createStatement();
-
-            stmt.executeUpdate(" insert into PARTICIPANTE (CODIGO, NOME, EMAIL, SENHA, CPF, VALIDADO) values (' " +codigo+ " ',' " +nome+ " ',' " +email+ " ',' " +senha+ " ',' " +cpf +" ',' "+ validado+" ' ) " );
+            
+            stmt.executeUpdate(" insert into PARTICIPANTE (CODIGO, NOME, EMAIL, SENHA, CPF, VALIDADO) values ('" +codigo+ "','" +nome+ "','" +email+ "','" +senha+ "','" +cpf +"','"+ validado+"')" );
             sucesso = true;
             stmt.close();
             }
@@ -56,7 +56,7 @@ public class LocalizadorParticipante {
         boolean sucesso = false;
         try{ 
             Statement stmt= con.createStatement();
-            int aux = stmt.executeUpdate("delete from PARTICIPANTE where CODIGO=' " +cod+ " ' ");
+            int aux = stmt.executeUpdate("delete from PARTICIPANTE where CODIGO='" +cod+ "'");
             stmt.close();
             if(aux == 1)
                 sucesso = true;
@@ -72,10 +72,8 @@ public class LocalizadorParticipante {
         boolean aux = false;
         try{
             int codigo = participante.getCod();
-            String nome = participante.getNome();
             String email = participante.getEmail();
             String senha = participante.getSenha();
-            String cpf = participante.getCpf(); 
             String validado = "FALSE";
             if(participante.isValidado()){
                 validado = "TRUE";
@@ -83,7 +81,7 @@ public class LocalizadorParticipante {
             
             Statement stmt= this.con.createStatement();
             
-            int aux1 = stmt.executeUpdate("update PARTICIPANTE set NOME=' " +nome+ " ', EMAIL='"+email+ " ', SENHA='"+senha+ " ', CPF='"+cpf+ " ', VALIDADO='"+validado+ " 'where CODIGO=' " + codigo + " ' ");
+            int aux1 = stmt.executeUpdate("update PARTICIPANTE set EMAIL='"+email+ "', SENHA='"+senha+ "', VALIDADO='"+validado+ "'where CODIGO='" + codigo + "'");
             if (aux1 != 0){
                 aux = true;
             }else{
@@ -151,11 +149,11 @@ public class LocalizadorParticipante {
      public int codLivre(){
                 try{
                 Statement stmt= this.con.createStatement();
-                ResultSet rs = stmt.executeQuery("select * from PUBLIC.PARTICIPANTE");
+                ResultSet rs = stmt.executeQuery(" select * from PUBLIC.PARTICIPANTE ");
                 int max = 1;
                 int cont = 0;
                 while (rs.next()) {
-                        cont = rs.getInt(1);
+                        cont = rs.getInt(1);                        
                         if(cont > max)
                             max = cont;
                }
@@ -169,4 +167,28 @@ public class LocalizadorParticipante {
 		}
         
     }
+     
+          public boolean CPFjaCadastrado(String cpf){
+                try{
+                Statement stmt= this.con.createStatement();
+                ResultSet rs = stmt.executeQuery(" select * from PUBLIC.PARTICIPANTE ");
+                String cpf_cadastrado;
+                int cont = 0;
+                while (rs.next()) {
+                        cpf_cadastrado = rs.getString(5);                        
+                        if(cpf_cadastrado.equals(cpf))
+                           return true;
+               }
+                        rs.close();
+		        stmt.close();
+                        return false;
+                        
+                }                     
+		catch (SQLException e) {
+			return true;
+		}
+        
+    }
+     
+     
 }

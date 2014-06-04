@@ -56,7 +56,6 @@
             <Menu class="javax.swing.JMenu" name="jMenuCinema">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Cinema"/>
-                <Property name="actionCommand" type="java.lang.String" value="Cinema"/>
               </Properties>
               <SubComponents>
                 <MenuItem class="javax.swing.JMenuItem" name="jMenuItemCinemaCadastrar">

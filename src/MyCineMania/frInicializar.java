@@ -142,7 +142,19 @@ public class frInicializar extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonCancelaMouseClicked
 
     private void jButtonConfirmaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonConfirmaMouseClicked
-       
+        LocalizadorAdministrador locAdmin = new LocalizadorAdministrador();
+        Administrador admin = locAdmin.buscaAdministrador(Integer.parseInt(jTextFieldUsuario.getText())); //try catch
+        if(admin.getSenha().equals(jPasswordFieldSenha.getText())){
+            frAdministrador frAdmin = new frAdministrador();
+            this.setVisible(false);
+            frAdmin.setVisible(true);         
+        }
+        else{
+            JOptionPane.showMessageDialog(null, "Senha incorreta");
+            jTextFieldUsuario.setText(null);
+            jPasswordFieldSenha.setText(null);
+        }
+            
     }//GEN-LAST:event_jButtonConfirmaMouseClicked
     
     public void setControle(ControlePrincipal controle1){

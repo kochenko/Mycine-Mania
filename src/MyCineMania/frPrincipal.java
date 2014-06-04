@@ -33,7 +33,6 @@ public final class frPrincipal extends javax.swing.JFrame {
  
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-        java.awt.GridBagConstraints gridBagConstraints;
 
         buttonGroup1 = new javax.swing.ButtonGroup();
         jPanelPrincipal = new javax.swing.JPanel();
@@ -154,7 +153,6 @@ public final class frPrincipal extends javax.swing.JFrame {
         jMenuEditar.add(jMenuParticipante);
 
         jMenuCinema.setText("Cinema");
-        jMenuCinema.setActionCommand("Cinema");
 
         jMenuItemCinemaCadastrar.setText("Cadastrar");
         jMenuCinema.add(jMenuItemCinemaCadastrar);
